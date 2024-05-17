@@ -1,0 +1,6 @@
+* Atividades
+
+1 - Criar Markdown - PUT
+2 - Realizar testes unitários usando JUnit e Mockito - PUT
+3 - Documentar (criar comentários dos recursos) - PUT
+4 - criar classe DocumentService onde tem o metodo que valida o doc (CPF)

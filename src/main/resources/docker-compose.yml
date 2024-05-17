@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres
+    volumes:
+      - data.sql
+    environment:
+      POSTGRES_PASSWORD: "root"
+    ports:
+      - "5432:5432"
