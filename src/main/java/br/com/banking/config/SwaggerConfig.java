@@ -48,7 +48,7 @@ public class SwaggerConfig {
 					.directModelSubstitute(LocalDateTime.class, String.class)
 					.directModelSubstitute(LocalTime.class, String.class)
 					.select()
-						.apis(RequestHandlerSelectors.basePackage("br.com.banking.resource"))
+						.apis(RequestHandlerSelectors.basePackage("br.com.banking.domain.client.controller"))
 						.paths(PathSelectors.any())
 					.build()
 					.pathMapping("/");

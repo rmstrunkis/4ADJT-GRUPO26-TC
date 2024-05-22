@@ -1,3 +1,1 @@
-insert into ACCOUNT (DOCUMENTID, ACTIVE) values	('12056211726', 'true');
-
-insert into	ACCOUNT (DOCUMENTID, ACTIVE) values	('12345678900', 'true');
+insert into CLIENT (NOME, CPF) values	('João da Silva', '12056211726');
