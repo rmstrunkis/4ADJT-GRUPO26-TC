@@ -10,6 +10,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.Optional;
+import java.util.List;
 
 @Service
 public class ClientService {
@@ -24,6 +25,7 @@ public class ClientService {
             Client novoCliente = new Client();
             novoCliente.setNome(clientRequest.getNome());
             novoCliente.setCpf(clientRequest.getCpf());
+            novoCliente.setComprovanteResidencia(clientRequest.getComprovanteResidencia());
 
             Client clienteSalvo = clientRepository.save(novoCliente);
 
@@ -39,5 +41,36 @@ public class ClientService {
             return ResponseEntity.ok(clienteEncontrado.get());
         }
     }
+    public ResponseEntity<Client> atualizaCliente(Long id, ClientRequest clientRequest) {
+        Optional<Client> clienteEncontrado = clientRepository.findById(id);
+        if (clienteEncontrado.isPresent()) {
+            Client cliente = clienteEncontrado.get();
+            cliente.setNome(clientRequest.getNome());
+            cliente.setComprovanteResidencia(clientRequest.getComprovanteResidencia());
+            clientRepository.save(cliente);
+            return ResponseEntity.ok(cliente);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 
+    public ResponseEntity<Void> excluiCliente(Long id) {
+        Optional<Client> clienteEncontrado = clientRepository.findById(id);
+        if (clienteEncontrado.isPresent()) {
+            clientRepository.delete(clienteEncontrado.get());
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    public ResponseEntity<Client> getClienteById(Long id) {
+        Optional<Client> clienteEncontrado = clientRepository.findById(id);
+        return clienteEncontrado.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    public ResponseEntity<List<Client>> getAllClients() {
+        List<Client> clients = clientRepository.findAll();
+        return ResponseEntity.ok(clients);
+    }
 }

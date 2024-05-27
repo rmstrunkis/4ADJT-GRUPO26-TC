@@ -23,4 +23,6 @@ public class Client {
     @Column(name = "CPF")
     private String cpf;
 
+    @Column(name = "COMPROVANTE_RESIDENCIA")
+    private String comprovanteResidencia;
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -13,8 +15,12 @@ import lombok.NoArgsConstructor;
 public class ClientRequest {
 
     @ApiModelProperty(value = "Nome do cliente", example = "João da Silva", position = 1)
+
     private String nome;
 
-    @ApiModelProperty(value = "Numero do CPF", example = "123.456.789-12", position = 1)
+    @ApiModelProperty(value = "Numero do CPF", example = "123.456.789-12", position = 2)
     private String cpf;
+
+    @ApiModelProperty(value = "Comprovante de Residência", example = "Rua das Flores, 123", position = 3)
+    private String comprovanteResidencia;
 }
