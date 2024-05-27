@@ -1,1 +1,1 @@
-insert into CLIENT (NOME, CPF) values	('João da Silva', '12056211726');
+insert into CLIENT (NOME, CPF, COMPROVANTE_RESIDENCIA) values ('João da Silva', '12056211726', 'Rua das Flores, 123');
